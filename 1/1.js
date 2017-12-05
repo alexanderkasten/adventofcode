@@ -32,11 +32,11 @@ function check2 () {
   let arr = [];
 
     for(let i = 0; i<captcha2.length; i++){
-      if(captcha2[i] == captcha2[i+captcha2.length/2]) 
+      if(captcha2[i] === captcha2[i+captcha2.length/2]) 
       {
           arr.push(captcha2[i]);
       }
-      if(captcha2[i] == captcha2[captcha2.length/2 - (captcha2.length-i)])
+      if(captcha2[i] === captcha2[captcha2.length/2 - (captcha2.length-i)])
       {
         arr.push(captcha2[i]);
       }
