@@ -17,16 +17,36 @@ const spreadsheet = [[5048,177,5280,5058,4504,3805,5735,220,4362,1809,1521,230,7
   [296,306,1953,3538,248,1579,4326,2178,5021,2529,794,5391,4712,3734,261,4362],
   [2426,192,1764,288,4431,2396,2336,854,2157,216,4392,3972,229,244,4289,1902]];
 
-function start() {
+function firstpart() {
   let diff = [];
 
-  for (let i = 0; i<16; i++){
+  for (let i = 0; i<spreadsheet.length; i++){
     spreadsheet[i].sort(function(a, b){return b-a});
     diff.push(spreadsheet[i][0] - spreadsheet[i][(spreadsheet[i].length - 1)]);
   }
 
   let sum = eval(diff.join('+'));
   console.log(sum);
+
+  secondpart();
 }
 
-start();
+function secondpart() {
+  let temp = [];
+
+  for (let i = 0; i<spreadsheet.length; i++){
+    for (let j = 0; j<spreadsheet.length; j++){
+      for (let k = 0; k<spreadsheet.length; k++){
+        if (spreadsheet[i][j] % spreadsheet[i][k] == 0 && spreadsheet[i][j] != spreadsheet[i][k]){
+          temp.push(spreadsheet[i][j]/spreadsheet[i][k]);
+          k,j = spreadsheet.length;
+        }
+      }
+    }
+  }
+  
+  let sum = eval(temp.join('+'));
+  console.log(sum);
+}
+
+firstpart();
